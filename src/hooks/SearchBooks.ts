@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { IBook } from "../models/book"
 import { BooksSlice } from "../redux/reducers/BooksSlice"
 import { SearchValuesSlice } from "../redux/reducers/SearchValuesSlice"
@@ -76,7 +76,6 @@ export function useSearchBooks() {
         setLoader(true)
         try {
             const response = await axios.get(idURL)
-            console.log(response.data)
             setBook({id : response.data.id, volumeInfo: response.data.volumeInfo})
             setLoader(false)
         } catch (error) {

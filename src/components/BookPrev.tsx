@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom"
-import { IBook, IVolumeInfo } from "../models/book"
+import { useNavigate } from "react-router-dom"
+import { IBook } from "../models/book"
 
 interface BookPreviewProps {
     book : IBook

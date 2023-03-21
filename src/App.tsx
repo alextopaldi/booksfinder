@@ -1,5 +1,4 @@
 import './App.scss';
-import { useAppSelector } from './hooks/Redux';
 import { Route, Routes } from 'react-router-dom';
 import { MainPage } from './pages/MainPage';
 import { BookPage } from './pages/BookPage';
