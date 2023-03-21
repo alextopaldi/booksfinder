@@ -1,4 +1,4 @@
-FROM node:16
+FROM alextopaldi/booksfinder:latest
 
 WORKDIR /app
 
