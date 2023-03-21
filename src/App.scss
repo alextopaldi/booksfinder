@@ -1,0 +1,298 @@
+        $container: 1280px;
+        $white:#FFFFFF;
+        $black: #000000;
+        $gray: #7c7c7c;
+        $gray-black: #4e4e4e;
+        $gray-active: #e7e7e7;
+        $green: rgb(99, 165, 99);
+        $red: rgb(204, 85, 55);
+        $blue: rgb(80, 90, 228);
+        $white-bg: rgba(252, 252, 252, 1);
+        $transition: 0.4s;
+        $shadow: rgba(99, 99, 99, 0.6) 0px 2px 8px 0px;
+        $nato: 'Noto Sans',
+        sans-serif;
+        body {
+            color: $gray-black;
+            background-color: $white-bg;
+            font-family: $nato;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @mixin flex($jc, $ai) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: $jc;
+            align-items: $ai;
+        }
+        
+        .wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: $container;
+            margin: 0 auto;
+            padding: 0 40px;
+            // outline: 1px solid red;
+        }
+        
+        .small-img {
+            width: 128px;
+            height: 180px;
+        }
+        
+        .search {
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .search-form {
+            width: 80%;
+            @include flex(center, center);
+            margin: 0 auto;
+            position: relative;
+            height: auto;
+            input {
+                width: 100%;
+                padding: 15px 20px;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                box-shadow: $shadow;
+                color: $black;
+                transition: 0.4s;
+                &:hover {
+                    background-color: $gray-active;
+                }
+                &::placeholder {
+                    color: $gray;
+                    font-family: $nato;
+                }
+            }
+            button {
+                position: absolute;
+                right: 0;
+                bottom: 50%;
+                transform: translate(0, 50%);
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                color: $gray;
+                transition: 0.4s;
+                cursor: pointer;
+                background-color: transparent;
+                &:hover {
+                    color: $black;
+                }
+            }
+            .search-icon {
+                height: 20px;
+            }
+        }
+        
+        .search-selects {
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 10px;
+            @include flex(center, center);
+            select {
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                color: $gray;
+                transition: 0.4s;
+                cursor: pointer;
+                box-shadow: $shadow;
+                background-color: transparent;
+                margin-left: 10px;
+                &:hover {
+                    color: $black;
+                    background-color: $gray-active;
+                }
+                padding:5px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                font-family: $nato;
+            }
+            &__preview {
+                @include flex(center, center);
+                margin-right: 40px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                p {
+                    color: $gray-black
+                }
+            }
+        }
+        
+        .books {
+            @include flex(space-between, center)
+        }
+        
+        .book-preview {
+            padding: 10px 20px;
+            width: 300px;
+            height: 300px;
+            background-color: white;
+            box-shadow: $shadow;
+            border-radius: 5px;
+            @include flex(center, center);
+            flex-wrap: wrap;
+            text-align: center;
+            margin: 10px;
+            overflow-y: auto;
+            &:hover {
+                background-color: $gray-active;
+                cursor: pointer;
+            }
+            p {
+                width: 100%;
+            }
+            transition: 0.4s;
+        }
+        
+        .res-count {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .more-btn {
+            margin: 20px auto;
+            display: block;
+            padding: 10px 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            box-shadow: $shadow;
+            background-color: $white;
+            color: $gray;
+            transition: 0.4s;
+            cursor: pointer;
+            &:hover {
+                background-color: $gray-active;
+                color: $black;
+            }
+        }
+        
+        .loader {
+            position: fixed;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            z-index: 100;
+        }
+        
+        .server-message {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .book-info {
+            width: 100%;
+            @include flex(space-between, center);
+            margin-top: 50px;
+        }
+        
+        .book-info__img {
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+            width: 40%;
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+        
+        .book-info__text {
+            width: 50%;
+            padding: 20px 40px;
+            background-color: $gray-active;
+            box-shadow: $shadow;
+            border-radius: 5px;
+            textarea {
+                width: 100%;
+                height: 150px;
+                border: none;
+                outline: none;
+                padding: 10px 20px;
+                font-family: $nato;
+                border-radius: 5px;
+                resize: none;
+            }
+            p {
+                margin-bottom: 20px;
+            }
+        }
+        
+        .book-cat {
+            font-size: 14px;
+            color: $gray;
+        }
+        
+        .book-title {
+            font-size: 22px;
+        }
+        
+        .back-link {
+            color: $gray-black;
+        }
+        
+        .modal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            backdrop-filter: blur(4px);
+        }
+        
+        .loader {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            color: $white;
+            font-size: 22px;
+        }
+        
+        @media (max-width: 800px) {
+            .search-selects__preview {
+                margin-right: 0;
+                margin-top: 20px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+            .search-selects {
+                flex-direction: column;
+            }
+            .book-info {
+                flex-direction: column;
+            }
+            .book-info__text {
+                width: 100%;
+                padding: 10px 20px;
+            }
+            .book-info__img {
+                width: 70%;
+                margin-bottom: 40px;
+            }
+            .book-title {
+                font-size: 18px;
+            }
+            .books {
+                justify-content: center;
+            }
+        }
